@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MovieList from "../components/MovieList";
 import "../style/main-page.scss";
 export default function MainPage() {

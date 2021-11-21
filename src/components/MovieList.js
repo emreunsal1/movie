@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import MovieCard from "./MovieCard";
-import { fetchMovies } from "../utils";
+import { fetchMovies, generateRandomPrice } from "../utils";
+import { AppContext } from "../context";
 
 export default function MovieList() {
-  const [movies, setMovies] = useState([]);
+  const context = useContext(AppContext);
 
   useEffect(() => {
     getMovies();
@@ -11,11 +12,18 @@ export default function MovieList() {
 
   const getMovies = async () => {
     const response = await fetchMovies();
-    setMovies(response.data.results);
+    const manipulatedData = response.data.results.map((item) => {
+      return {
+        ...item,
+        price: generateRandomPrice(),
+      };
+    });
+    await context.movieData.setMovies(manipulatedData);
   };
+
   return (
     <div className="movie-list">
-      {movies.map((movie) => (
+      {context.movieData.movies.map((movie) => (
         <MovieCard movie={movie} />
       ))}
     </div>

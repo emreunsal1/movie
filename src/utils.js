@@ -9,5 +9,10 @@ export const fetchMovies = async () => {
   });
 };
 
+export const generateRandomPrice = () => {
+  const prices = ["44,50 TL", "60,99 TL", "35,00 TL", "85,00 TL", "40,99 TL"];
+  return prices[Math.floor(Math.random() * prices.length)];
+};
+
 export const getImageUrl = (name, resolution) =>
   `${imageBaseUrl}${resolution}${name}`;
