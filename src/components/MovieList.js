@@ -24,7 +24,7 @@ export default function MovieList() {
   return (
     <div className="movie-list">
       {context.movieData.movies.map((movie) => (
-        <MovieCard movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </div>
   );

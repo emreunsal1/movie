@@ -4,6 +4,7 @@ import MovieCard from "../components/MovieCard";
 
 export default function BasketPage() {
   const context = useContext(AppContext);
+  context.totalPrice();
 
   const basketItems = context.movieData.movies.filter((item) =>
     context.basket.items.includes(item.id)
@@ -11,8 +12,9 @@ export default function BasketPage() {
 
   return (
     <div className="basket-list-container">
+      {context.totalPrice()}
       {basketItems.map((movie) => (
-        <MovieCard type="basket" movie={movie} />
+        <MovieCard key={movie.id} type="basket" movie={movie} />
       ))}
     </div>
   );

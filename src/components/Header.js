@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
     <div className="header">
-      <Link to="/basket">Sepetim {items.length}</Link>
+      <Link to="/basket"> Sepetim {items.length}</Link>
     </div>
   );
 }

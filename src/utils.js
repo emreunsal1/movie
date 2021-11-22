@@ -10,7 +10,7 @@ export const fetchMovies = async () => {
 };
 
 export const generateRandomPrice = () => {
-  const prices = ["44,50 TL", "60,99 TL", "35,00 TL", "85,00 TL", "40,99 TL"];
+  const prices = [44.5, 60.99, 35.0, 85.0, 40.99];
   return prices[Math.floor(Math.random() * prices.length)];
 };
 

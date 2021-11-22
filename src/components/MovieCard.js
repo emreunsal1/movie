@@ -9,12 +9,9 @@ export default function MovieCard({ type, movie }) {
   const addToBasket = (id) => {
     context.basket.setItems([...context.basket.items, id]);
   };
-
-  const removeFromBasket = (id) => {
-    const index = context.basket.items.findIndex((item) => item === id);
-    const a = context.basket.items;
-    a.splice(index, 1);
-    context.basket.setItems(a);
+  const moviePrice = () => {
+    const price = movie.price * itemCount;
+    return price;
   };
 
   const isBasket = type === "basket";
@@ -32,15 +29,20 @@ export default function MovieCard({ type, movie }) {
         <div>Movie Date: {movie.release_date}</div>
         <div>Overview: {movie.overview}</div>
         <div>price: {movie.price}</div>
+        {isBasket && "total Price :$" + moviePrice()}
         <div className="button-group">
           {itemCount > 0 ? (
             <div className="item-counter">
-              <button onClick={() => removeFromBasket(movie.id)}>-</button>
+              <button onClick={() => context.removeBasketItems(movie.id)}>
+                -
+              </button>
               <span>{itemCount}</span>
               <button onClick={() => addToBasket(movie.id)}>+</button>
             </div>
           ) : (
-            <button onClick={() => addToBasket(movie.id)}>Sepete Ekle</button>
+            <button onClick={() => addToBasket(movie.id)}>
+              Sepete Ekle {context.totalPrice}
+            </button>
           )}
         </div>
       </div>
