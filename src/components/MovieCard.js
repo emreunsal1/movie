@@ -20,7 +20,7 @@ export default function MovieCard({ type, movie }) {
 
   return (
     <div className="movie-item">
-      <div className="image">
+      <div className="image" onClick={() => context.movieDetailsShow(movie.id)}>
         <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
       </div>
       <div className="content">
