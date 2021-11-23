@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useContext } from "react";
 
 const AppContext = createContext();
 
@@ -18,6 +18,10 @@ export default function ContextProvider({ children }) {
       return true;
     });
     setItems(deleteMovie);
+  };
+
+  const addToBasket = (id) => {
+    setItems([...items, id]);
   };
 
   const totalPrice = () => {
@@ -40,6 +44,7 @@ export default function ContextProvider({ children }) {
     basket: {
       items,
       setItems,
+      addToBasket,
     },
     movieData: {
       movies,
@@ -49,6 +54,7 @@ export default function ContextProvider({ children }) {
       popupStatus,
       setPopupStatus,
     },
+
     removeBasketItems,
     totalPrice,
     movieDetail,
@@ -59,5 +65,6 @@ export default function ContextProvider({ children }) {
     <AppContext.Provider value={contextItem}>{children}</AppContext.Provider>
   );
 }
+const useAppContext = () => useContext(AppContext);
 
-export { AppContext, ContextProvider };
+export { AppContext, ContextProvider, useAppContext };

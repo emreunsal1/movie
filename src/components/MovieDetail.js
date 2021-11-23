@@ -21,6 +21,14 @@ export default function MovieDetail() {
             <div>Overview: {movie.overview}</div>
             <div>price: {movie.price}</div>
           </div>
+          <button
+            onClick={() => {
+              context.basket.addToBasket(movie.id);
+              context.popup.setPopupStatus(false);
+            }}
+          >
+            Sepete Ekle {context.totalPrice}
+          </button>
         </>
       ))}
     </div>

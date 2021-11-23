@@ -6,9 +6,6 @@ import { AppContext } from "../context";
 export default function MovieCard({ type, movie }) {
   const context = useContext(AppContext);
 
-  const addToBasket = (id) => {
-    context.basket.setItems([...context.basket.items, id]);
-  };
   const moviePrice = () => {
     const price = movie.price * itemCount;
     return price;
@@ -37,10 +34,12 @@ export default function MovieCard({ type, movie }) {
                 -
               </button>
               <span>{itemCount}</span>
-              <button onClick={() => addToBasket(movie.id)}>+</button>
+              <button onClick={() => context.basket.addToBasket(movie.id)}>
+                +
+              </button>
             </div>
           ) : (
-            <button onClick={() => addToBasket(movie.id)}>
+            <button onClick={() => context.basket.addToBasket(movie.id)}>
               Sepete Ekle {context.totalPrice}
             </button>
           )}
