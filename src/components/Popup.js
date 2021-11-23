@@ -1,13 +1,18 @@
 import React from "react";
-import { useAppContext } from "../context";
+import "../style/popup.scss";
 
 export default function Popup({ children, onClose }) {
-  const context = useAppContext();
   const popupOnClick = (event) => {
     if (event.target.className === "popup") {
       onClose();
+      document.body.style = "";
     }
   };
+  const disableScroll = () => {
+    document.body.style = "overflow-y: hidden";
+  };
+  disableScroll();
+
   return (
     <div>
       <div className="popup" onClick={popupOnClick}>

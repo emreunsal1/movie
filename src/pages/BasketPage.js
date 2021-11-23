@@ -9,7 +9,6 @@ export default function BasketPage() {
   const [basketPopup, setBasketPopup] = useState(false);
 
   const context = useContext(AppContext);
-  context.totalPrice();
 
   const basketItems = context.movieData.movies.filter((item) =>
     context.basket.items.includes(item.id)
@@ -21,7 +20,7 @@ export default function BasketPage() {
         Sepeti Onayla
       </button>
       <div className="basket-list-container">
-        {`\$${context.totalPrice()}`}
+        {context.basket.getTotalPrice()}
         {basketPopup && (
           <Popup onClose={() => setBasketPopup(false)}>
             <BasketPopup />
@@ -33,9 +32,9 @@ export default function BasketPage() {
       </div>
     </>
   ) : (
-    <div className="nullBasket">
-      Sepetinizde Hiç Ürün bulunmamaktadır :({" "}
-      {<Link to="/">Alışverişe devam et</Link>}
+    <div className="null-basket">
+      Sepetinizde Hiç Ürün bulunmamaktadır :(
+      <Link to="/">Alışverişe devam et</Link>
     </div>
   );
 }

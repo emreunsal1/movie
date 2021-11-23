@@ -6,18 +6,21 @@ import { AppContext } from "../context";
 export default function MovieCard({ type, movie }) {
   const context = useContext(AppContext);
 
-  const moviePrice = () => {
-    const price = movie.price * itemCount;
-    return price;
-  };
+  const moviePrice = () => movie.price * itemCount;
 
   const isBasket = type === "basket";
 
   const itemCount = context.basket.items.filter((id) => id === movie.id).length;
 
+  const movieDetailsShow = (id) => {
+    const movie = context.movieData.movies.filter((item) => item.id === id);
+    context.popup.setMovieDetail(movie);
+    context.popup.setStatus(true);
+  };
+
   return (
     <div className="movie-item">
-      <div className="image" onClick={() => context.movieDetailsShow(movie.id)}>
+      <div className="image" onClick={() => movieDetailsShow(movie.id)}>
         <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
       </div>
       <div className="content">
@@ -25,12 +28,11 @@ export default function MovieCard({ type, movie }) {
         <div>Movie Name: {movie.title}</div>
         <div>Movie Date: {movie.release_date}</div>
         <div>Overview: {movie.overview}</div>
-        <div>price: {movie.price}</div>
-        {isBasket && "total Price :$" + moviePrice()}
+        <div>price: {movie.priceText}</div>
         <div className="button-group">
           {itemCount > 0 ? (
             <div className="item-counter">
-              <button onClick={() => context.removeBasketItems(movie.id)}>
+              <button onClick={() => context.basket.removeBasketItem(movie.id)}>
                 -
               </button>
               <span>{itemCount}</span>
@@ -40,7 +42,7 @@ export default function MovieCard({ type, movie }) {
             </div>
           ) : (
             <button onClick={() => context.basket.addToBasket(movie.id)}>
-              Sepete Ekle {context.totalPrice}
+              Sepete Ekle
             </button>
           )}
         </div>

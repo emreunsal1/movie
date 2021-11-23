@@ -10,8 +10,8 @@ export default function MainPage() {
 
   return (
     <div className="main-page">
-      {popup.popupStatus && (
-        <Popup onClose={() => context.popup.setPopupStatus(false)}>
+      {popup.status && (
+        <Popup onClose={() => context.popup.setStatus(false)}>
           <MovieDetail />
         </Popup>
       )}

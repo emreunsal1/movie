@@ -4,6 +4,7 @@ import MainPage from "./pages/MainPage";
 import Header from "./components/Header";
 import BasketPage from "./pages/BasketPage";
 import { ContextProvider } from "./context";
+import "./style/reset.scss";
 
 function App() {
   return (
