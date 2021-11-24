@@ -4,6 +4,7 @@ import "../style/main-page.scss";
 import { AppContext } from "../context";
 import MovieDetail from "../components/MovieDetail";
 import Popup from "../components/Popup";
+import { Grid } from "@mui/material";
 export default function MainPage() {
   const context = useContext(AppContext);
   const popup = context.popup;
