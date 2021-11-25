@@ -4,7 +4,7 @@ import "../style/main-page.scss";
 import { AppContext } from "../context";
 import MovieDetail from "../components/MovieDetail";
 import Popup from "../components/Popup";
-import { Grid } from "@mui/material";
+import SliderCarousel from "../components/SliderCarousel";
 export default function MainPage() {
   const context = useContext(AppContext);
   const popup = context.popup;
@@ -16,6 +16,7 @@ export default function MainPage() {
           <MovieDetail />
         </Popup>
       )}
+      <SliderCarousel />
       <MovieList />
     </div>
   );

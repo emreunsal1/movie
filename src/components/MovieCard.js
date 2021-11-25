@@ -3,6 +3,7 @@ import { getImageUrl } from "../utils";
 import { imageResolution } from "../constants";
 import "../style/movie-card.scss";
 import { AppContext } from "../context";
+import Box from "@mui/material/Box";
 export default function MovieCard({ type, movie }) {
   const context = useContext(AppContext);
 
@@ -24,10 +25,8 @@ export default function MovieCard({ type, movie }) {
         <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
       </div>
       <div className="content">
-        <div>Movie id : {movie.id}</div>
         <div>Movie Name: {movie.title}</div>
         <div>Movie Date: {movie.release_date}</div>
-        <div>Overview: {movie.overview}</div>
         <div>price: {movie.priceText}</div>
         <div className="button-group">
           {itemCount > 0 ? (

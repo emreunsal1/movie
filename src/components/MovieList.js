@@ -1,18 +1,19 @@
 import React, { useContext } from "react";
 import MovieCard from "./MovieCard";
 import { AppContext } from "../context";
-import { Grid, Box } from "@mui/material";
+import Grid from "@mui/material/Grid";
+import { spacing } from "@mui/system";
 
 export default function MovieList() {
   const context = useContext(AppContext);
 
   return (
     <div className="movie-list">
-      <Grid container>
+      <Grid container spacing={5}>
         {context.movieData.movies.map((movie) => (
-          <Box>
+          <Grid item xs={4}>
             <MovieCard key={movie.id} movie={movie} />
-          </Box>
+          </Grid>
         ))}
       </Grid>
     </div>

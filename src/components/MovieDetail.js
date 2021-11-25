@@ -15,7 +15,6 @@ export default function MovieDetail() {
             <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
           </div>
           <div className="content">
-            <div>Movie id : {movie.id}</div>
             <div>Movie Name: {movie.title}</div>
             <div>Movie Date: {movie.release_date}</div>
             <div>Overview: {movie.overview}</div>
