@@ -11,23 +11,28 @@ export default function MovieDetail() {
     <div className="popup-movie">
       {context.popup.movieDetail.map((movie) => (
         <>
-          <div className="image">
-            <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
+          <div className="popup-container">
+            <div className="image">
+              <img
+                src={getImageUrl(movie.poster_path, imageResolution.SMALL)}
+              />
+            </div>
+            <div className="content">
+              <div>Movie Name: {movie.title}</div>
+              <div>Movie Date: {movie.release_date}</div>
+              <div>Overview: {movie.overview}</div>
+              <div>price: {movie.price}</div>
+
+              <button
+                onClick={() => {
+                  context.basket.addToBasket(movie.id);
+                  context.popup.setStatus(false);
+                }}
+              >
+                Sepete Ekle
+              </button>
+            </div>
           </div>
-          <div className="content">
-            <div>Movie Name: {movie.title}</div>
-            <div>Movie Date: {movie.release_date}</div>
-            <div>Overview: {movie.overview}</div>
-            <div>price: {movie.price}</div>
-          </div>
-          <button
-            onClick={() => {
-              context.basket.addToBasket(movie.id);
-              context.popup.setStatus(false);
-            }}
-          >
-            Sepete Ekle
-          </button>
         </>
       ))}
     </div>

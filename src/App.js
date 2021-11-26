@@ -9,9 +9,6 @@ import "./style/reset.scss";
 function App() {
   return (
     <ContextProvider>
-      <div className="title-jpg">
-        <div className="image-container"></div>
-      </div>
       <Router>
         <Header />
         <Switch>

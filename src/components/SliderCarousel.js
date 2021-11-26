@@ -18,13 +18,15 @@ export default function SliderCarousel() {
     slidesToShow: 3,
     autoplay: true,
     speed: 5000,
+    slidesToScroll: 1,
     autoplaySpeed: 10,
     cssEase: "linear",
   };
   return (
     <div className="slider-movie">
+      <div className="image-container"></div>
       <div>
-        <h2> Single Item</h2>
+        <h2>Emovie</h2>
         <Slider {...settings}>
           {movies.map((movie) => (
             <div className="inner-slider">
