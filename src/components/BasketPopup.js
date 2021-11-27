@@ -1,21 +1,110 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAppContext } from "../context";
+import "../style/basket-popup.scss";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import { MenuItem, Select } from "@mui/material";
+import Typography from "@mui/material/Typography";
 
-export default function BasketPopup() {
+export default function BasketPopup({ closePopup }) {
   const context = useAppContext();
+  const [month, setMonth] = useState(1);
+  const [year, setYear] = useState(new Date().getFullYear());
 
   return (
-    <form>
-      Total Price : {context.basket.getTotalPrice()}
-      Name: <input type="text" />
-      Adress: <input type="text" />
-      tel: <input type="tel" />
-      <div className="credit-card">
-        <h3>Credit Card</h3>
-        Card Number : <input type="text" />
-        Expiration date: <input type="number" min="1" max="12" />
-        <input type="number" min="21" max="35" />
+    <div className="basket-popup">
+      <div className="bg-wrapper">
+        <div className="user-info">
+          <div className="user-info-item">
+            <label>Name:</label>
+            <TextField
+              fullWidth
+              color="secondary"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              type="text"
+            />
+          </div>
+          <div className="user-info-item">
+            <label>Adress:</label>
+            <TextField
+              fullWidth
+              color="secondary"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              type="text"
+            />
+          </div>
+          <div className="user-info-item">
+            <label>Phone Number:</label>
+            <TextField
+              fullWidth
+              color="secondary"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              type="tel"
+            />
+          </div>
+        </div>
+        <div className="credit-card">
+          <h3>
+            Credit <span> Card</span>
+          </h3>
+          <div className="credit-card-item">
+            <label>Card Number :</label>
+            <TextField
+              fullWidth
+              color="secondary"
+              id="outlined-basic"
+              label="Outlined"
+              variant="outlined"
+              type="text"
+            />
+          </div>
+          <div className="credit-card-item expiration">
+            <label>Expiration date:</label>
+            <Select
+              sx={{
+                ml: 1,
+              }}
+              value={month}
+              onChange={(e) => setMonth(e.target.value)}
+              color="secondary"
+              label="Month"
+            >
+              {Array.from(Array(12).keys()).map((item) => (
+                <MenuItem value={item + 1}>{item + 1}</MenuItem>
+              ))}
+            </Select>
+            <Select
+              sx={{
+                ml: 1,
+              }}
+              value={year}
+              onChange={(e) => setYear(e.target.value)}
+              color="secondary"
+              label="Year"
+            >
+              {Array.from(Array(100).keys()).map((item) => (
+                <MenuItem value={item + 2020}>{item + 2020}</MenuItem>
+              ))}
+            </Select>
+          </div>
+        </div>
+        <div className="credit-finish">
+          <div className="total-price">
+            <Typography color="secondary" variant="h4">
+              {context.basket.getTotalPrice()}
+            </Typography>
+          </div>
+          <Button variant="outlined" onClick={closePopup} size="large">
+            Şimdi öde
+          </Button>
+        </div>
       </div>
-    </form>
+    </div>
   );
 }

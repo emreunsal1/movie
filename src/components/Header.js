@@ -11,16 +11,16 @@ export default function Header() {
   return (
     <div className="header">
       <div className="logo">
-        <p>
+        <Link to="/">
           E<span>movie</span>
-        </p>
+        </Link>
       </div>
       <div className="basket-button">
         <ShoppingBasketIcon fontSize="large" sx={{ color: "#ff55a5" }} />
         <Link to="/basket">
           {" "}
           <p>
-            Sepetim <span>{items.length}</span>
+            Sepetim <span>{items && items.length}</span>
           </p>{" "}
         </Link>
       </div>

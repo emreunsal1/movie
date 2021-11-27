@@ -1,0 +1,56 @@
+.basket-list-container {
+  .basket-popup {
+    color: white;
+    background-color: rgba($color: #7472723f, $alpha: 1);
+    width: 800px;
+    max-width: 90%;
+    padding: 5px;
+    border-radius: 8px;
+    background: linear-gradient(to right, #ff55a5, rgb(58, 91, 199));
+    -webkit-box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
+    box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
+    .bg-wrapper {
+      background-color: #1a191f;
+      padding: 8px;
+      input {
+        display: block;
+        width: 100%;
+      }
+      label {
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .user-info {
+        &-item {
+          margin-bottom: 10px;
+        }
+      }
+      .credit-card {
+        h3 {
+          span {
+            color: #ff55a5;
+          }
+        }
+        &-item {
+          margin-bottom: 10px;
+        }
+        .expiration {
+          label {
+            display: inline;
+          }
+        }
+      }
+
+      .credit-finish {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .total-price {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}

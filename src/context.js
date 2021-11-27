@@ -5,13 +5,13 @@ import { fetchMovies, generateRandomPrice } from "./utils";
 const AppContext = createContext();
 
 export default function ContextProvider({ children }) {
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(null);
   const [movies, setMovies] = useState([]);
   const [popupStatus, setPopupStatus] = useState(false);
   const [movieDetail, setMovieDetail] = useState();
 
   useEffect(() => {
-    if (items.length !== 0) {
+    if (items) {
       window.localStorage.setItem(
         localStorageBasketItemsKey,
         JSON.stringify(items)
@@ -24,7 +24,7 @@ export default function ContextProvider({ children }) {
     const localItems = JSON.parse(
       window.localStorage.getItem(localStorageBasketItemsKey)
     );
-    setItems(localItems || []);
+    setItems(localItems);
   }, []);
 
   const removeBasketItem = (id) => {
@@ -40,7 +40,10 @@ export default function ContextProvider({ children }) {
   };
 
   const addToBasket = (id) => {
-    setItems([...items, id]);
+    if (items) {
+      return setItems([...items, id]);
+    }
+    setItems([id]);
   };
 
   const getMovies = async () => {
@@ -58,9 +61,8 @@ export default function ContextProvider({ children }) {
 
   const getTotalPrice = () => {
     if (movies.length === 0) return 0;
-    const basketMovies = items.map((item) =>
-      movies.find((movie) => item === movie.id)
-    );
+    const basketMovies =
+      items && items.map((item) => movies.find((movie) => item === movie.id));
     return (
       "$" +
       Number(

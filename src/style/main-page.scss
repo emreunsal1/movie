@@ -1,6 +1,15 @@
+.main-page {
+  margin-top: 70px;
+}
 .movie-list {
-  width: 88%;
-  display: flex;
-  justify-content: center;
+  max-width: 90%;
+  width: 1600px;
   margin: 0 auto;
+  .title {
+    margin: 20px 0;
+    margin-left: 5px;
+    span {
+      color: #ff5082;
+    }
+  }
 }

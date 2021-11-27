@@ -10,14 +10,4 @@
   left: 0;
   background-color: rgba($color: #c175ce4d, $alpha: 0.1);
   z-index: 3;
-  .popup-movie {
-    background-color: rgba($color: #7472723f, $alpha: 1);
-    width: 30%;
-    .popup-container {
-      border-radius: 10;
-
-      display: flex;
-      text-align: start;
-    }
-  }
 }

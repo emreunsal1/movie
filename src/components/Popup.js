@@ -1,23 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../style/popup.scss";
 
-export default function Popup({ children, onClose }) {
+export default function Popup({ children, onClose, show }) {
   const popupOnClick = (event) => {
     if (event.target.className === "popup") {
-      onClose();
       document.body.style = "";
+      onClose();
     }
   };
-  const disableScroll = () => {
+
+  useEffect(() => {
     document.body.style = "overflow-y: hidden";
-  };
-  disableScroll();
+    return () => {
+      document.body.style = "";
+      onClose();
+    };
+  }, []);
 
   return (
-    <div>
-      <div className="popup" onClick={popupOnClick}>
-        {children}
+    show && (
+      <div>
+        <div className="popup" onClick={popupOnClick}>
+          {children}
+        </div>
       </div>
-    </div>
+    )
   );
 }
