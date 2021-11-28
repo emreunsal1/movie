@@ -21,7 +21,7 @@ export default function BasketPopup({ closePopup }) {
               fullWidth
               color="secondary"
               id="outlined-basic"
-              label="Outlined"
+              label="Name/Surname"
               variant="outlined"
               type="text"
             />
@@ -32,7 +32,7 @@ export default function BasketPopup({ closePopup }) {
               fullWidth
               color="secondary"
               id="outlined-basic"
-              label="Outlined"
+              label="Adress"
               variant="outlined"
               type="text"
             />
@@ -43,7 +43,7 @@ export default function BasketPopup({ closePopup }) {
               fullWidth
               color="secondary"
               id="outlined-basic"
-              label="Outlined"
+              label="Number"
               variant="outlined"
               type="tel"
             />
@@ -59,7 +59,7 @@ export default function BasketPopup({ closePopup }) {
               fullWidth
               color="secondary"
               id="outlined-basic"
-              label="Outlined"
+              label="Card Number"
               variant="outlined"
               type="text"
             />
@@ -100,8 +100,8 @@ export default function BasketPopup({ closePopup }) {
               {context.basket.getTotalPrice()}
             </Typography>
           </div>
-          <Button variant="outlined" onClick={closePopup} size="large">
-            Şimdi öde
+          <Button variant="outlined" onClick={() => closePopup()} size="large">
+            Pay Now
           </Button>
         </div>
       </div>

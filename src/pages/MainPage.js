@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import MovieList from "../components/MovieList";
 import "../style/main-page.scss";
 import { AppContext } from "../context";
@@ -8,13 +8,20 @@ import SliderCarousel from "../components/SliderCarousel";
 
 export default function MainPage() {
   const context = useContext(AppContext);
+
   const popup = context.popup;
 
   return (
     <div className="main-page">
-      <Popup show={popup.status} onClose={() => context.popup.setStatus(false)}>
-        <MovieDetail />
-      </Popup>
+      {context.popup.status && (
+        <Popup
+          show={popup.status}
+          onClose={() => context.popup.setStatus(false)}
+        >
+          <MovieDetail />
+        </Popup>
+      )}
+
       <SliderCarousel />
       <MovieList />
     </div>

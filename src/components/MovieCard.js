@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { getImageUrl } from "../utils";
 import { imageResolution } from "../constants";
 import { AppContext } from "../context";

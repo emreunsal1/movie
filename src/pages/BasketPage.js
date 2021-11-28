@@ -34,7 +34,7 @@ export default function BasketPage() {
         }}
       >
         <MuiAlert variant="filled" severity="success">
-          This is a success message!
+          Your order is on its way !
         </MuiAlert>
       </Snackbar>
 
