@@ -80,7 +80,7 @@ export default function BasketPage() {
   ) : (
     <div className="null-basket">
       <Typography fontSize="30px">
-        T<span>here are no products </span>in your basket <span>:</span>({" "}
+        There are<span> no products </span>in your basket <span>:</span>({" "}
         <Link to="/">
           Keep <span>Shopping</span>
         </Link>
