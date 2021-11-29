@@ -75,7 +75,7 @@ export default function MovieDetail() {
                 color="inherit"
                 variant="outlined"
               >
-                Sepete Ekle
+                Add to Basket
               </Button>
             </div>
           </Grid>

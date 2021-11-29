@@ -4,9 +4,12 @@ An app to buy movies
 
 Techs:
 - **React**
+- **Router**
+- **Context**
 - **MUI**
 
-Demo: [sticky-notes-demo](https://notes-front-end.vercel.app)
+
+Demo: [sticky-notes-demo](https://movie-three-azure.vercel.app/)
 
 
 ---

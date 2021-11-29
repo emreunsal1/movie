@@ -19,7 +19,7 @@ export default function Header() {
         <ShoppingBasketIcon fontSize="large" sx={{ color: "#ff55a5" }} />
         <Link to="/basket">
           <p>
-            Sepetim <span>{items && items.length}</span>
+            My Basket <span>{items && items.length}</span>
           </p>
         </Link>
       </div>

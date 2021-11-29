@@ -40,6 +40,12 @@
   }
   &.basket {
     margin-bottom: 10px;
+    position: relative;
+    .delete-button {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+    }
     .image {
       height: 334px;
       img {

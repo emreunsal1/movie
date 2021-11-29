@@ -11,6 +11,7 @@ import ArrowRightIcon from "@mui/icons-material/ArrowRight";
 import Rating from "@mui/material/Rating";
 import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { Grid } from "@mui/material";
 
@@ -32,9 +33,25 @@ export default function MovieCard({ type, movie }) {
 
   const moviePrice = Number(movie.price * itemCount).toFixed(2);
 
+  const deleteAllmovie = (id) => {
+    const cleanList = context.basket.items.filter((item) => item !== id);
+    context.basket.setItems(cleanList);
+  };
+
   return (
     <div className={`movie-item ${isBasket ? "basket" : ""}`}>
       <Grid container>
+        {isBasket && (
+          <div className="delete-button">
+            <IconButton aria-label="delete" size="small">
+              <DeleteIcon
+                fontSize="large"
+                onClick={() => deleteAllmovie(movie.id)}
+                color="action"
+              />
+            </IconButton>
+          </div>
+        )}
         <Grid item xs={12} md={isBasket ? 3 : 6}>
           <div className="image" onClick={() => movieDetailsShow()}>
             <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
@@ -101,7 +118,7 @@ export default function MovieCard({ type, movie }) {
                   onClick={() => context.basket.addToBasket(movie.id)}
                   variant="outlined"
                 >
-                  Sepete Ekle
+                  Add to Basket
                 </Button>
               )}
             </div>

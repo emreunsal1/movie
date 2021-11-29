@@ -47,13 +47,14 @@
     .image {
       @media only screen and (max-width: 600px) {
         padding: 10px;
-        width: 70%;
+        width: 90%;
         margin: 0 auto;
       }
       img {
         width: 100%;
         @media only screen and (max-width: 600px) {
           height: 200px;
+          object-fit: contain;
         }
       }
     }

@@ -6,7 +6,7 @@ import Popup from "../components/Popup";
 import BasketPopup from "../components/BasketPopup";
 import "../style/basket-page.scss";
 import Button from "@mui/material/Button";
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
@@ -79,8 +79,12 @@ export default function BasketPage() {
     </>
   ) : (
     <div className="null-basket">
-      Sepetinizde Hiç Ürün bulunmamaktadır :(
-      <Link to="/">Alışverişe devam et</Link>
+      <Typography fontSize="30px">
+        T<span>here are no products </span>in your basket <span>:</span>({" "}
+        <Link to="/">
+          Keep <span>Shopping</span>
+        </Link>
+      </Typography>
     </div>
   );
 }
