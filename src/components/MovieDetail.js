@@ -2,23 +2,24 @@ import React, { useContext } from "react";
 import { AppContext } from "../context";
 import { getImageUrl } from "../utils";
 import { imageResolution } from "../constants";
+
 import "../style/movie-detail.scss";
+
 import { Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import { createTheme } from "@mui/material/styles";
-import { fontSize, height } from "@mui/system";
+
 export default function MovieDetail() {
   const context = useContext(AppContext);
   const movie = context.popup.movieDetail;
 
-  const theme = createTheme();
-
   let adult = "None";
   let fragman = "None";
+
   if (movie.adult) {
     adult = "+18";
   }
+
   if (movie.video) {
     fragman = "Available";
   }

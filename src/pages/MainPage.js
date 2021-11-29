@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import MovieList from "../components/MovieList";
 import "../style/main-page.scss";
 import { AppContext } from "../context";

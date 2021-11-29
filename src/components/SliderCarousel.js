@@ -10,12 +10,12 @@ import { imageResolution } from "../constants";
 
 export default function SliderCarousel() {
   const context = useAppContext();
+  const { movies } = context.movieData;
   let slideShow = 1;
+
   if (window.innerWidth > 600) {
     slideShow = 4;
   }
-
-  const { movies } = context.movieData;
 
   const settings = {
     infinite: true,
@@ -28,6 +28,7 @@ export default function SliderCarousel() {
     cssEase: "linear",
     arrows: false,
   };
+
   return (
     <div className="slider-movie">
       <div className="bg-wrapper">

@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import MovieCard from "./MovieCard";
 import { AppContext } from "../context";
 import Grid from "@mui/material/Grid";
-import { spacing } from "@mui/system";
 import Typography from "@mui/material/Typography";
 
 export default function MovieList() {

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { getImageUrl } from "../utils";
 import { imageResolution } from "../constants";
 import { AppContext } from "../context";
@@ -16,7 +16,6 @@ import { Grid } from "@mui/material";
 
 export default function MovieCard({ type, movie }) {
   const context = useContext(AppContext);
-
   const isBasket = type === "basket";
 
   const itemCount = context.basket.items?.filter(
@@ -30,6 +29,7 @@ export default function MovieCard({ type, movie }) {
     context.popup.setMovieDetail(clickedMovie);
     context.popup.setStatus(true);
   };
+
   const moviePrice = Number(movie.price * itemCount).toFixed(2);
 
   return (
