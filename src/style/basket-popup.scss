@@ -9,6 +9,28 @@
     background: linear-gradient(to right, #ff55a5, rgb(58, 91, 199));
     -webkit-box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
     box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
+    position: relative;
+
+    .delete-button {
+      background-color: #c175cede;
+      position: absolute;
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top: -10px;
+      right: -10px;
+      z-index: 3;
+      cursor: pointer;
+      @media only screen and (max-width: 600px) {
+        top: -10px;
+        right: -10px;
+      }
+    }
+
     .bg-wrapper {
       background-color: #1a191f;
       padding: 8px;

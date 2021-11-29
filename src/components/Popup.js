@@ -3,7 +3,10 @@ import "../style/popup.scss";
 
 export default function Popup({ children, onClose, show }) {
   const popupOnClick = (event) => {
-    if (event.target.className === "popup") {
+    if (
+      event.target.className === "popup" ||
+      event.target.className == "delete-button"
+    ) {
       document.body.style = "";
       onClose();
     }
@@ -19,10 +22,8 @@ export default function Popup({ children, onClose, show }) {
 
   return (
     show && (
-      <div>
-        <div className="popup" onClick={popupOnClick}>
-          {children}
-        </div>
+      <div className="popup" onClick={popupOnClick}>
+        {children}
       </div>
     )
   );

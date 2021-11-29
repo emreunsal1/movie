@@ -13,6 +13,7 @@ export default function BasketPopup({ closePopup }) {
 
   return (
     <div className="basket-popup">
+      <div className="delete-button">x</div>
       <div className="bg-wrapper">
         <div className="user-info">
           <div className="user-info-item">

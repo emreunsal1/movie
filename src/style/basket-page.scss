@@ -3,6 +3,13 @@
   max-width: 90%;
   margin: 0 auto;
   margin-top: 80px;
+
+  .basket-title {
+    color: white;
+    span {
+      color: #ff55a5;
+    }
+  }
   .basket-price-content {
     color: #ff55a5;
     padding: 30px 0;

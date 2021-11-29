@@ -10,12 +10,17 @@ import { imageResolution } from "../constants";
 
 export default function SliderCarousel() {
   const context = useAppContext();
+  let slideShow = 1;
+  if (window.innerWidth > 600) {
+    slideShow = 4;
+  }
 
   const { movies } = context.movieData;
 
   const settings = {
     infinite: true,
-    slidesToShow: 4,
+
+    slidesToShow: slideShow,
     autoplay: true,
     speed: 5000,
     slidesToScroll: 1,
@@ -27,7 +32,7 @@ export default function SliderCarousel() {
     <div className="slider-movie">
       <div className="bg-wrapper">
         <h2>Emovie</h2>
-        <Slider {...settings}>
+        <Slider className="slider" {...settings}>
           {movies.map((movie) => (
             <div className="inner-slider">
               <img

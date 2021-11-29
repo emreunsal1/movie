@@ -3,24 +3,69 @@
   width: 800px;
   max-width: 90%;
   padding: 5px;
+  position: relative;
   border-radius: 8px;
   background: linear-gradient(to right, #ff55a5, rgb(58, 91, 199));
   -webkit-box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
   box-shadow: 0px 0px 15px 2px rgb(255 80 130 / 17%);
+  @media only screen and (max-width: 600px) {
+    max-height: 609px;
+    overflow: scroll;
+    display: block;
+  }
+  .delete-button {
+    background-color: #c175ced7;
+    position: absolute;
+    color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -10px;
+    right: -10px;
+    z-index: 3;
+    cursor: pointer;
+    @media only screen and (max-width: 600px) {
+      top: 10px;
+      right: 10px;
+      z-index: 3;
+    }
+  }
 
   .popup-container {
     border-radius: 8px;
     overflow: hidden;
     background-color: #1a191f;
+    @media only screen and (max-width: 600px) {
+    }
+
+    .image-grid {
+    }
+
     .image {
+      @media only screen and (max-width: 600px) {
+        padding: 10px;
+        width: 70%;
+        margin: 0 auto;
+      }
       img {
         width: 100%;
+        @media only screen and (max-width: 600px) {
+          height: 200px;
+        }
       }
     }
     .content {
       padding: 10px;
       color: white;
       margin-left: 10px;
+      @media only screen and (max-width: 600px) {
+        .movie-title {
+          font-size: 20px;
+        }
+      }
     }
   }
 }
