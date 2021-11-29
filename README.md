@@ -9,7 +9,7 @@ Techs:
 - **MUI**
 
 
-Demo: [sticky-notes-demo](https://movie-three-azure.vercel.app/)
+Demo: [Emovie-demo](https://movie-three-azure.vercel.app/)
 
 
 ---
