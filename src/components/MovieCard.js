@@ -53,7 +53,10 @@ export default function MovieCard({ type, movie }) {
           </div>
         )}
         <Grid item xs={12} md={isBasket ? 3 : 6}>
-          <div className="image" onClick={() => movieDetailsShow()}>
+          <div
+            className="image"
+            onClick={() => !isBasket && movieDetailsShow()}
+          >
             <img src={getImageUrl(movie.poster_path, imageResolution.SMALL)} />
           </div>
         </Grid>
